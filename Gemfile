@@ -28,6 +28,7 @@ gem 'rack-cors'
 gem 'devise'
 gem 'devise-jwt'
 gem 'jsonapi-serializer'
+gem 'jbuilder'
 
 group :test do
   gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
