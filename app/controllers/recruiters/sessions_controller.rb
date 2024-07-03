@@ -6,8 +6,9 @@ class Recruiters::SessionsController < Devise::SessionsController
   private
 
   def respond_with(resource, _opts = {})
-  render 'recruiters/session/create', status: :ok
-end
+    @resource = resource
+    render 'recruiters/session/create', status: :ok
+  end
 
   def respond_to_on_destroy
     if current_user
