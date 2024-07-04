@@ -9,8 +9,7 @@ RSpec.describe JobsController, type: :request do
   end
 
   describe 'GET #show' do
-    let(:job) { create(:job) }
-
+    !let(:job) { create(:job) }
     it 'returns a successful response' do
       get "/jobs/#{job.id}", headers: { "ACCEPT" => "application/json" }
       expect(response).to have_http_status(:ok)

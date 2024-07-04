@@ -5,10 +5,10 @@ class JobsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :job_not_found
 
   def index
-    @jobs = Job.all
+    @jobs = Job.active
+    @jobs = @jobs.search(params[:query]) if params[:query].present?
   end
 
-  #TODO
   def show
     @job
   end
