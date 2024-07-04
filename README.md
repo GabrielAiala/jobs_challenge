@@ -1,24 +1,37 @@
-# README
+# Aplicação desafio
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+ para instalar rodar
 
-Things you may want to cover:
+```
+bundle install
+rails db:create
+rails db:migrate
+```
 
-* Ruby version
+para rodar a aplicação basta rodar com o comando
 
-* System dependencies
+```
+rails s
+```
 
-* Configuration
+temos apenas essas rotas
 
-* Database creation
+```
+  resources :submissions, only: [:create, :show]
+  resources :jobs
 
-* Database initialization
+  put 'recruiters/:id', to: 'recruiters#update'
+  get 'recruiters', to: 'recruiters#index'
 
-* How to run the test suite
+  devise_for :recruiters, path: '', path_names: {
+    sign_in: 'login',
+    sign_out: 'logout',
+    registration: 'signup'
+  },
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+para rodar os testes
 
-* Deployment instructions
-
-* ...
+```
+bundle exec rspec .
+```
